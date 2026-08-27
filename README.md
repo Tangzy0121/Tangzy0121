@@ -32,4 +32,4 @@ Currently, I am exploring:
 ![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat-square&logo=numpy&logoColor=white)
 ![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white)
 
-btw, somewhere between debugging and writing notes, you'll probably find me thinking about *Mushoku Tensei* :)
+🌙 btw, somewhere between debugging and writing notes, you'll probably find me thinking about *Mushoku Tensei* ✨
