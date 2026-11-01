@@ -15,3 +15,9 @@ Push changes in docs/ to main. GitHub Pages automatically rebuilds from that dir
 Current runtime content can be edited in docs/work/projects.js. Library and asset credits are in docs/CREDITS.md. Profile README changes are independent of the site deployment.
 
 No engineering-skill setup was added, as requested by the account owner on 2026-11-01.
+
+## Blog integration · 2026-11-01
+
+The owner-approved blog lives at /Tangzy0121/blog/. The Contact More link and embedded terminal blog command open it. The root terminal website receives the same command in its own repository. The blog supports title/tag/body search, category and year filters, progressive listing, and article history navigation. Published content is maintained in the source project blog/posts.js; layout examples remain in local previews.
+
+This release overlays only the blog files, Contact link, embedded terminal assets, and sitemap on the published v0.74 baseline. The separate v0.75 responsive layout preview remains local pending owner feedback. Use scripts/build-blog.cjs and scripts/prepare-blog-pages.cjs from the maintained project for a scoped blog update.

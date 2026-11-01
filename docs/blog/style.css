@@ -1,0 +1,94 @@
+#tangzy-blog { color-scheme: light dark; }
+  #tangzy-blog .bs-page {
+    --bs-bg: light-dark(#faf9fc, #1e1b26);
+    --bs-fg: light-dark(#2b2634, #eeeaf4);
+    --bs-muted: light-dark(#716979, #b8afc1);
+    --bs-line: light-dark(#e3dce9, #3b3344);
+    --bs-accent: light-dark(#795492, #d5b4ec);
+    --bs-active: light-dark(#ede4f4, #3c2d4b);
+    --bs-input: light-dark(#ffffff, #27222f);
+    --bs-match: light-dark(#f4e5b8, #5d4b27);
+    --bs-hover: light-dark(#f1edf5, #2a2433);
+    background: var(--bs-bg); color: var(--bs-fg);
+    font: 400 15px/1.65 "Segoe UI", "Microsoft YaHei", sans-serif;
+    padding: 26px 40px 24px; box-sizing: border-box;
+  }
+  #tangzy-blog * { box-sizing: border-box; }
+  #tangzy-blog [hidden] { display: none !important; }
+  #tangzy-blog button, #tangzy-blog input, #tangzy-blog select { font-family: inherit; }
+  #tangzy-blog button { font-weight: 400; }
+  #tangzy-blog .bs-top { display: flex; align-items: baseline; gap: 15px; padding-bottom: 22px; border-bottom: 1px solid var(--bs-line); }
+  #tangzy-blog .bs-brand { font: 500 24px/1.5 Georgia, serif; }
+  #tangzy-blog .bs-heart { margin-left: 6px; color: var(--bs-accent); }
+  #tangzy-blog .bs-location, #tangzy-blog .bs-caption { font-size: 13px; color: var(--bs-muted); }
+  #tangzy-blog .bs-heading { margin: 30px 0 24px; display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
+  #tangzy-blog h1 { margin: 0; font: 500 29px/1.5 "Segoe UI", "Microsoft YaHei", sans-serif; overflow-wrap: anywhere; }
+  #tangzy-blog .bs-toolbar { display: grid; grid-template-columns: minmax(0,1fr) 126px; gap: 14px; align-items: end; }
+  #tangzy-blog label { display: block; font-size: 12px; color: var(--bs-muted); margin-bottom: 7px; }
+  #tangzy-blog .bs-search-box { display: flex; align-items: center; background: var(--bs-input); border: 1px solid var(--bs-line); border-radius: 6px; min-width: 0; }
+  #tangzy-blog .bs-search-box:focus-within { border-color: var(--bs-accent); }
+  #tangzy-blog input { min-width: 0; width: 100%; height: 44px; padding: 9px 13px; color: var(--bs-fg); background: transparent; border: 0; font-size: 16px; border-radius: 6px; }
+  #tangzy-blog input::-webkit-search-cancel-button { -webkit-appearance: none; }
+  #tangzy-blog input::placeholder { color: var(--bs-muted); font-size: 14px; opacity: 1; }
+  #tangzy-blog select { width: 100%; min-height: 46px; font-size: 14px; padding: 8px 10px; border: 1px solid var(--bs-line); border-radius: 6px; background: var(--bs-input); color: var(--bs-fg); }
+  #tangzy-blog .bs-clear { border: 0; background: transparent; color: var(--bs-muted); flex-shrink: 0; font-size: 12px; min-width: 44px; min-height: 44px; padding: 6px 9px; }
+  #tangzy-blog .bs-categories { display: flex; flex-wrap: wrap; gap: 5px; margin: 15px 0 16px; }
+  #tangzy-blog .bs-category-button { min-height: 40px; padding: 7px 12px; color: var(--bs-muted); font-size: 14px; background: transparent; border: 0; border-radius: 5px; }
+  #tangzy-blog .bs-category-button[aria-pressed="true"] { color: var(--bs-accent); background: var(--bs-active); }
+  #tangzy-blog .bs-result-bar { display: flex; justify-content: space-between; gap: 12px; align-items: center; min-height: 34px; margin: 0 0 18px; font-size: 12px; color: var(--bs-muted); }
+  #tangzy-blog .bs-reset { font-size: 12px; color: var(--bs-accent); background: transparent; border: 0; padding: 6px 0 6px 8px; min-height: 34px; white-space: nowrap; }
+  #tangzy-blog .bs-group { margin-top: 24px; }
+  #tangzy-blog .bs-group:first-child { margin-top: 0; }
+  #tangzy-blog .bs-year-heading { display: flex; align-items: center; gap: 13px; margin: 0 0 5px; color: var(--bs-muted); font: 500 14px/1.6 "Segoe UI", "Microsoft YaHei", sans-serif; }
+  #tangzy-blog .bs-year-heading::after { content: ""; flex: 1; height: 1px; background: var(--bs-line); }
+  #tangzy-blog .bs-list { padding: 0; margin: 0; list-style: none; }
+  #tangzy-blog .bs-row { display: grid; grid-template-columns: 50px 44px minmax(0,1fr); gap: 16px; align-items: baseline; padding: var(--bs-row-space, 12px) 0; }
+  #tangzy-blog .bs-date { color: var(--bs-muted); font: 400 13px/1.7 Consolas, monospace; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  #tangzy-blog .bs-category { color: var(--bs-accent); font-size: 12px; white-space: nowrap; }
+  #tangzy-blog .bs-entry { min-width: 0; }
+  #tangzy-blog .bs-title { display: block; width: 100%; padding: 0; text-align: left; border: 0; background: transparent; color: var(--bs-fg); font-size: 15px; line-height: 1.65; overflow-wrap: anywhere; }
+  #tangzy-blog .bs-title:hover { color: var(--bs-accent); text-decoration: underline; text-underline-offset: 4px; }
+  #tangzy-blog .bs-snippet, #tangzy-blog .bs-search-tags { margin-top: 5px; font-size: 12px; color: var(--bs-muted); overflow-wrap: anywhere; }
+  #tangzy-blog .bs-search-tags { margin-top: 3px; }
+  #tangzy-blog mark { color: var(--bs-fg); background: var(--bs-match); border-radius: 2px; }
+  #tangzy-blog .bs-more, #tangzy-blog .bs-empty-reset { display: block; background: transparent; color: var(--bs-accent); border: 1px solid var(--bs-line); border-radius: 6px; padding: 9px 20px; min-height: 44px; font-size: 13px; margin: 22px auto 0; }
+  #tangzy-blog .bs-more:hover, #tangzy-blog .bs-empty-reset:hover { background: var(--bs-hover); }
+  #tangzy-blog .bs-empty { text-align: center; padding: 36px 0 42px; }
+  #tangzy-blog .bs-empty h2 { font: 500 17px/1.6 "Segoe UI", "Microsoft YaHei", sans-serif; margin: 0 0 8px; }
+  #tangzy-blog .bs-empty p { color: var(--bs-muted); font-size: 13px; margin: 0; }
+  #tangzy-blog .bs-footer { display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; margin-top: 38px; border-top: 1px solid var(--bs-line); padding-top: 18px; color: var(--bs-muted); font-size: 11px; }
+  #tangzy-blog .bs-back { min-height: 44px; margin: 19px 0; padding: 8px 0; border: 0; background: transparent; color: var(--bs-accent); font-size: 13px; }
+  #tangzy-blog .bs-reader-meta, #tangzy-blog .bs-reader-tags { color: var(--bs-muted); font-size: 13px; margin-top: 12px; }
+  #tangzy-blog .bs-reader-tags { color: var(--bs-accent); margin-top: 8px; }
+  #tangzy-blog .bs-reader-body { margin-top: 30px; font-size: 16px; line-height: 1.95; overflow-wrap: anywhere; }
+  #tangzy-blog .bs-reader-body p { margin: 0 0 20px; }
+  @media (pointer: coarse) {
+    #tangzy-blog .bs-category-button, #tangzy-blog .bs-reset { min-height: 44px; }
+    #tangzy-blog .bs-title { min-height: 44px; }
+  }
+  @media (max-width: 520px) {
+    #tangzy-blog .bs-page { padding: 20px; }
+    #tangzy-blog h1 { font-size: 25px; }
+    #tangzy-blog .bs-heading { margin: 25px 0 21px; align-items: flex-start; flex-direction: column; gap: 5px; }
+    #tangzy-blog .bs-toolbar { grid-template-columns: minmax(0,1fr); gap: 14px; }
+    #tangzy-blog .bs-year-field { display: flex; align-items: center; gap: 12px; }
+    #tangzy-blog .bs-year-field label { margin: 0; flex-shrink: 0; }
+    #tangzy-blog .bs-year-field select { width: 130px; min-height: 44px; }
+    #tangzy-blog .bs-categories { gap: 2px; margin-top: 14px; }
+    #tangzy-blog .bs-category-button { min-height: 44px; padding: 7px 9px; }
+    #tangzy-blog .bs-row { grid-template-columns: 49px minmax(0,1fr); gap: 2px 13px; }
+    #tangzy-blog .bs-date { grid-column: 1; grid-row: 1; }
+    #tangzy-blog .bs-category { grid-column: 1; grid-row: 2; }
+    #tangzy-blog .bs-entry { grid-column: 2; grid-row: 1 / span 2; }
+    #tangzy-blog .bs-title { min-height: 44px; }
+  }
+
+  :root { color-scheme: light dark; background: light-dark(#faf9fc, #1e1b26); }
+  body { margin: 0; }
+  #tangzy-blog .bs-page { max-width: 920px; margin: 0 auto; }
+  #tangzy-blog .bs-brand { color: var(--bs-fg); text-decoration: none; }
+  #tangzy-blog .bs-home { margin-left: auto; color: var(--bs-muted); text-decoration: none; font-size: 13px; padding: 10px 0 10px 12px; }
+  #tangzy-blog .bs-home:hover { color: var(--bs-accent); }
+  #tangzy-blog a.bs-title { text-decoration: none; font-weight: 400; }
+  #tangzy-blog select:disabled { opacity: .6; }
+  #tangzy-blog noscript { display: block; padding: 24px 0; }

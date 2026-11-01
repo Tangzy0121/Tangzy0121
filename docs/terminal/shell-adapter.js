@@ -3,7 +3,7 @@
   'use strict';
   try { if (!localStorage.getItem('tang-shell-theme')) localStorage.setItem('tang-shell-theme', 'dark'); } catch {}
   const request = (action, detail = {}) => parent.postMessage({ type: 'tangzy:shell', action, ...detail }, location.origin);
-  const allowed = new Set(['education', 'research', 'study', 'explore', 'mindset', 'home', 'back', 'bio', 'papers', 'projects', 'cv', 'scholar', 'help', 'tree', 'cat bio | grep -i safety']);
+  const allowed = new Set(['education', 'research', 'study', 'explore', 'mindset', 'home', 'back', 'blog', 'bio', 'papers', 'projects', 'cv', 'scholar', 'help', 'tree', 'cat bio | grep -i safety']);
   let run, setInput, closePager, announced = false, timer = 0, token = 0, typing = false, automaticID, lastManualInput = -Infinity;
   function cancelTyping({ clear = false } = {}) {
     ++token; clearTimeout(timer); timer = 0;
