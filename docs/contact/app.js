@@ -7,8 +7,8 @@
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const channels = {
     email: { label: 'Email', title: 'A letter, maybe?', note: '适合一个想法，也适合一封长信。', pending: '邮箱地址待补充', action: '打开邮箱', color: '#ffa6d3', rgb: '255,166,211', icon: '<path d="M15 26h110v68H15zM15 27l55 41 55-41M15 94l39-38m71 38L86 56"/><path d="M65 10h10m-5-5v10M129 8h6m-3-3v6M3 58h6m-3-3v6" stroke-width="1.5"/>' },
-    github: { label: 'more', title: 'Ideas, in the making.', note: '从一行代码，聊到下一个可能。', pending: 'GitHub 主页待补充', action: '前往 GitHub', color: '#c9b7ff', rgb: '201,183,255', icon: '<rect x="20" y="17" width="100" height="66" rx="5"/><path d="M20 32h100" stroke-width="1.5" opacity=".65"/><circle cx="29" cy="25" r="1.2" fill="currentColor" stroke="none"/><circle cx="36" cy="25" r="1.2" fill="currentColor" stroke="none"/><circle cx="43" cy="25" r="1.2" fill="currentColor" stroke="none"/><path d="m36 46 11 9-11 9m21 0h22M62 83v13m16-13v13M49 96h42" stroke-linecap="round"/>' },
-    qq: { label: 'Connect', title: 'A little less formal.', note: 'QQ 或微信，选一个顺手的方式来聊。', pending: 'QQ / WeChat 账号待补充', action: '查看三个二维码', color: '#a7d9ff', rgb: '167,217,255', icon: '<path d="M25 21h90v56H67L43 94V77H25z"/><path d="M45 47h4m19 0h4m19 0h4" stroke-width="5" stroke-linecap="round"/><path d="m110 89 8 8m-8 0 8-8M12 23h8m-4-4v8" stroke-width="1.5"/>' }
+    github: { label: 'more', title: 'A few other places.', note: '看看公开代码，或继续浏览我的作品。', pending: 'GitHub 主页待补充', action: '前往 GitHub', color: '#c9b7ff', rgb: '201,183,255', icon: '<g transform="rotate(-35 70 55)"><rect x="27" y="41" width="53" height="28" rx="14"/><rect x="60" y="41" width="53" height="28" rx="14"/><path d="M53 55h34" stroke-linecap="round"/></g><path d="M112 19h13v13m-13 0 13-13" stroke-linecap="round"/>' },
+    qq: { label: 'Connect', title: 'Scan to connect.', note: '可用的联系二维码，都放在这里。', pending: '联系二维码尚未开放', action: '查看联系二维码', color: '#a7d9ff', rgb: '167,217,255', icon: '<path d="M25 21h90v56H67L43 94V77H25z"/><path d="M45 47h4m19 0h4m19 0h4" stroke-width="5" stroke-linecap="round"/><path d="m110 89 8 8m-8 0 8-8M12 23h8m-4-4v8" stroke-width="1.5"/>' }
   };
   const keys = tabs.map(tab => tab.dataset.channel);
   let current = 'email', active = false, manualMotion = true, qrVisible = false, dialAngle = 0;
@@ -22,16 +22,14 @@
     try { const url = new URL(item.url); return url.protocol === 'https:' ? url.href : ''; } catch { return ''; }
   }
   function showScreen(mode, { focus = false } = {}) {
-    if (!['channel', 'compose', 'qr', 'tuning'].includes(mode)) return;
-    if (mode !== 'tuning') window.TangzyTuning?.leave();
+    if (!['channel', 'compose', 'qr'].includes(mode)) return;
     root.dataset.screenMode = mode;
     $('#ct-channel-view').hidden = !['channel', 'qr'].includes(mode);
     $('#ct-email-composer').hidden = mode !== 'compose';
-    $('#ct-tuning').hidden = mode !== 'tuning';
     $('#ct-screen-back').hidden = mode === 'channel';
     $('#ct-screen-state').hidden = mode !== 'channel';
     $('#ct-panel').setAttribute('aria-labelledby', mode === 'channel' ? 'ct-tab-' + current : 'ct-frequency');
-    $('#ct-frequency').textContent = mode === 'tuning' ? 'TANGZY / HIDDEN FREQUENCY' : mode === 'compose' ? 'CH.01 — EMAIL' : mode === 'qr' ? 'CH.02 — CONNECT' : 'CH.0' + (keys.indexOf(current) + 1) + ' — ' + channels[current].label.toUpperCase();
+    $('#ct-frequency').textContent = mode === 'compose' ? 'CH.01 — EMAIL' : mode === 'qr' ? 'CH.02 — CONNECT' : 'CH.0' + (keys.indexOf(current) + 1) + ' — ' + channels[current].label.toUpperCase();
     renderQR(mode === 'qr');
     root.dispatchEvent(new CustomEvent('contact:screen', { detail: { mode, focus } }));
     if (focus && mode !== 'compose') (mode === 'compose' ? $('#ct-sender-name') : mode === 'qr' ? $('#ct-panel') : $('#ct-tab-' + current)).focus({ preventScroll: true });
@@ -40,9 +38,13 @@
     const data = channels[current], item = config[current], isQR = current === 'qq';
     const inScreen = root.dataset.screenMode && root.dataset.screenMode !== 'channel';
     $('#ct-open').disabled = false;
-    $('#ct-open').textContent = inScreen ? '返回频道' : isQR ? (qrVisible ? '返回频道' : data.action) : current === 'email' ? '写一封信' : '在 About 打开 Terminal';
+    $('#ct-open').textContent = inScreen ? '返回频道' : isQR ? (qrVisible ? '返回频道' : data.action) : '写一封信';
+    $('.ct-channel-actions').hidden = current === 'github';
+    $('#ct-more-links').hidden = current !== 'github';
+    $('#ct-github-link').href = publicURL('github');
     const arrow = document.createElement('span'); arrow.textContent = qrVisible ? '↶' : '↗'; arrow.setAttribute('aria-hidden', 'true'); $('#ct-open').append(arrow);
     $('#ct-copy').disabled = current === 'qq' ? !socialAccounts() : !item.account;
+    $('#ct-copy').hidden = isQR && !socialAccounts();
     $('#ct-copy').setAttribute('aria-label', '复制 ' + data.label + ' 账号');
   }
   function renderQR(show) {
@@ -53,6 +55,7 @@
     $('.ct-screen-art').hidden = show;
     for (const [provider, label] of [['email', 'Email'], ['qq', 'QQ'], ['wechat', 'WeChat']]) {
       const card = $('[data-qr-provider="' + provider + '"]'), image = card.querySelector('img'), source = config[provider].qr;
+      card.hidden = !source;
       image.hidden = !source;
       const frame = card.querySelector('.ct-qr-frame');
       frame.tabIndex = source ? 0 : -1;
@@ -64,6 +67,7 @@
       if (source) { image.src = source; image.alt = label + ' 联系二维码'; }
       else { image.removeAttribute('src'); image.alt = ''; }
     }
+    $('.ct-qr-trio').dataset.count = String(root.querySelectorAll('[data-qr-provider]:not([hidden])').length);
     syncAction();
   }
   function select(key, { focus = false } = {}) {
@@ -82,7 +86,7 @@
     $('#ct-frequency').textContent = 'CH.0' + (index + 1) + ' — ' + data.label.toUpperCase();
     $('#ct-channel-title').textContent = data.title; $('#ct-channel-note').textContent = data.note;
     $('#ct-symbol').innerHTML = data.icon;
-    $('#ct-account').textContent = current === 'qq' ? socialAccounts().replace(/\n/g, ' · ') || data.pending : item.account || data.pending;
+    $('#ct-account').textContent = current === 'qq' ? socialAccounts().replace(/\n/g, ' · ') || config.email.account || data.pending : current === 'github' ? 'github.com/' + item.account : item.account || data.pending;
     $('#ct-count').textContent = '0' + (index + 1) + ' / 0' + keys.length;
     $('#ct-dial').setAttribute('aria-label', '拨动旋钮，切换到' + ({ email: 'Email', qq: 'Connect', github: 'more' })[keys[(index + 1) % keys.length]] + '模式');
     root.dataset.changing = 'true'; changeTimer = setTimeout(() => { root.dataset.changing = 'false'; }, 370);
@@ -102,8 +106,7 @@
   $('#ct-open').addEventListener('click', () => {
     if (root.dataset.screenMode !== 'channel') { showScreen('channel', { focus: true }); return; }
     if (current === 'email') { showScreen('compose', { focus: true }); return; }
-    if (current === 'github') { window.TangzyTerminal.open(); return; }
-    if (current === 'qq') { showScreen('qr', { focus: true }); announce('Email、QQ 和微信二维码已展开，未提供的二维码显示待补充。'); return; }
+    if (current === 'qq') { showScreen('qr', { focus: true }); announce('已展开当前可用的联系二维码。'); return; }
   });
   $('#ct-screen-back').addEventListener('click', () => { if (root.dataset.qrZoom === 'true') { $('#ct-qr-zoom-back').click(); return; } showScreen('channel', { focus: true }); });
   root.addEventListener('keydown', event => {
@@ -165,7 +168,7 @@
     compose() { select('email'); showScreen('compose', { focus: true }); },
     screen: showScreen,
     show({ focus = false } = {}) { active = true; root.dataset.active = String(!document.hidden); if (focus) root.focus({ preventScroll: true }); },
-    hide() { active = false; root.dataset.active = 'false'; if (root.dataset.screenMode === 'tuning') showScreen('channel'); window.TangzyTuning?.cancelHold(); clearTimeout(changeTimer); clearTimeout(copyTimer); copyRequest++; resetPose(); },
+    hide() { active = false; root.dataset.active = 'false'; clearTimeout(changeTimer); clearTimeout(copyTimer); copyRequest++; resetPose(); },
     get channel() { return current; }
   };
 })();

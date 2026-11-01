@@ -4,7 +4,7 @@ Website: https://tangzy0121.github.io/Tangzy0121/
 
 The root README.md remains the GitHub profile README. GitHub Pages publishes only main:/docs; .nojekyll disables Jekyll processing. The account's root terminal website remains separate.
 
-The initial published baseline is the approved portfolio v0.71 (2026-11-01 packaging). docs/ contains the runtime files, and no local research notes, screenshots, source maps or historical prototypes. Edit the maintained source project and run scripts/prepare-pages.cjs there to refresh this deployment checkout before committing docs/.
+The initial published baseline is the approved portfolio v0.71 (2026-11-01 packaging). Current runtime v0.72 keeps the contact dial as a channel selector, links More directly to GitHub and Work, shows only configured QR codes, and no longer loads the hidden 3D tuning performance. Its visual refinements await owner feedback. docs/ contains runtime files and retained legacy contact assets; local research notes, screenshots, source maps and standalone prototype folders are excluded. Edit the maintained source project and run scripts/prepare-pages.cjs there to refresh this deployment checkout before committing docs/.
 
 Large PDFs are not duplicated in Git. The CV and anonymous paper use the owner's existing public same-origin URLs; their Git blob identities were verified during packaging. The contact form retains its explicitly public Web3Forms receiving key; it contains no mail password or private API credential.
 

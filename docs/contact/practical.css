@@ -1,0 +1,14 @@
+/* Direct contact actions, with the radio dial retained as a channel selector. */
+#contact-view .ct-more-links{display:flex;align-items:stretch;gap:12px;width:100%}
+#contact-view .ct-more-links>a{display:flex;align-items:center;justify-content:space-between;gap:24px;flex:1;min-height:54px;border:1px solid rgba(var(--ct-rgb),.4);border-radius:7px;padding:12px 16px;background:rgba(var(--ct-rgb),.08);font-size:16px;color:#f7e8fa}
+#contact-view .ct-more-links>a:hover{background:rgba(var(--ct-rgb),.16);border-color:rgba(var(--ct-rgb),.75)}
+#contact-view .ct-more-links>a span{color:var(--ct-accent);font-size:21px}
+#contact-view .ct-art-orbit{animation:none;opacity:.35}
+#contact-view .ct-screen-art{min-height:100px}
+#contact-view .ct-screen-art>svg{max-height:115px}
+#contact-view .ct-qr-trio[data-count="1"]{grid-template-columns:minmax(0,1fr);justify-items:center}
+#contact-view .ct-qr-trio[data-count="1"] .ct-qr-card{width:min(260px,100%)}
+#contact-view .ct-dial-charge{display:none}
+#contact-view #ct-dial-hint{position:absolute;bottom:84px;right:18px;max-width:250px;padding:9px 12px;border:1px solid #b392b35c;border-radius:5px;background:#201729f5;color:#e5ccdf;font:11px/1.6 Arial,'Microsoft YaHei',sans-serif;letter-spacing:0;z-index:20;pointer-events:none;visibility:hidden;opacity:0;transition:opacity .15s}
+#contact-view #ct-dial:hover~#ct-dial-hint,#contact-view #ct-dial:focus-visible~#ct-dial-hint{visibility:visible;opacity:1}
+@media(max-width:650px){#contact-view .ct-more-links{gap:9px}#contact-view .ct-more-links>a{font-size:14px;padding:11px 12px;gap:14px}#contact-view .ct-machine-bottom{column-gap:12px}#contact-view .ct-machine-bottom .ct-channels>button{font-size:13px;padding:8px 6px}}
