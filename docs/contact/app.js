@@ -7,7 +7,7 @@
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const channels = {
     email: { label: 'Email', title: 'A letter, maybe?', note: '适合一个想法，也适合一封长信。', pending: '邮箱地址待补充', action: '打开邮箱', color: '#ffa6d3', rgb: '255,166,211', icon: '<path d="M15 26h110v68H15zM15 27l55 41 55-41M15 94l39-38m71 38L86 56"/><path d="M65 10h10m-5-5v10M129 8h6m-3-3v6M3 58h6m-3-3v6" stroke-width="1.5"/>' },
-    github: { label: 'more', title: 'A few other places.', note: '看看公开代码，或继续浏览我的作品。', pending: 'GitHub 主页待补充', action: '前往 GitHub', color: '#c9b7ff', rgb: '201,183,255', icon: '<g transform="rotate(-35 70 55)"><rect x="27" y="41" width="53" height="28" rx="14"/><rect x="60" y="41" width="53" height="28" rx="14"/><path d="M53 55h34" stroke-linecap="round"/></g><path d="M112 19h13v13m-13 0 13-13" stroke-linecap="round"/>' },
+    github: { label: 'more', title: 'A few other places.', note: '看看公开代码，或继续浏览我的作品。', pending: 'GitHub 主页待补充', action: '前往 GitHub', color: '#c9b7ff', rgb: '201,183,255', icon: '<g transform="translate(24.5 16.5) scale(7)" stroke-width=".34" stroke-linejoin="miter"><path d="M1 0h4v1h1v1h1V1h1V0h4v1h1v4h-1v1h-1v1h-1v1H9v1H8v1H7v1H6v-1H5V9H4V8H3V7H2V6H1V5H0V1h1z" fill="currentColor" fill-opacity=".09"/><path d="M2 2h2" stroke="#f7e8fa" stroke-width=".42" opacity=".7"/></g>' },
     qq: { label: 'Connect', title: 'Scan to connect.', note: '可用的联系二维码，都放在这里。', pending: '联系二维码尚未开放', action: '查看联系二维码', color: '#a7d9ff', rgb: '167,217,255', icon: '<path d="M25 21h90v56H67L43 94V77H25z"/><path d="M45 47h4m19 0h4m19 0h4" stroke-width="5" stroke-linecap="round"/><path d="m110 89 8 8m-8 0 8-8M12 23h8m-4-4v8" stroke-width="1.5"/>' }
   };
   const keys = tabs.map(tab => tab.dataset.channel);
