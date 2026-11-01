@@ -1,0 +1,12 @@
+/* Shared screen controls; Terminal itself uses its original homepage stylesheet. */
+#contact-view .ct-screen{min-width:0}
+#contact-view .ct-screen-bar{flex:none;min-height:20px;gap:8px}
+#contact-view .ct-channel-view{display:flex;flex-direction:column;align-items:center;width:100%;flex:1;min-height:0}
+#contact-view .ct-channel-view[hidden],#contact-view .ct-email-composer[hidden],#portfolio-terminal[hidden]{display:none}
+#contact-view #ct-terminal-toggle{margin-left:auto;border:0;background:transparent;padding:0 0 0 7px;font:14px/1 Consolas,monospace;color:#cfacc9;letter-spacing:-.07em}
+#contact-view #ct-terminal-toggle:hover,#contact-view #ct-terminal-toggle[aria-pressed=true]{color:var(--ct-accent)}
+#contact-view #ct-screen-back{margin-left:auto;padding:2px 0 2px 8px;border:0;background:transparent;color:#d4b6d6;font:11px/1.5 Consolas,"Microsoft YaHei",monospace}
+#contact-view #ct-screen-back[hidden]{display:none}
+#contact-view .ct-original-terminal{display:flex;flex-direction:column;width:100%;flex:1;min-height:0;padding-top:9px}
+#contact-view #terminal-original{display:block;border:0;width:100%;height:100%;min-height:0;flex:1;background:#171320;color-scheme:dark}
+@media(max-width:559px){#contact-view .ct-screen{height:380px;aspect-ratio:auto;min-height:0}#contact-view .ct-screen-bar{font-size:11px}}

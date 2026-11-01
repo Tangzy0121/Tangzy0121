@@ -1,0 +1,56 @@
+#contact-view .ct-email-composer{width:100%;flex:1;min-height:0;margin:0;padding:17px 7px 10px 0;overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#8d6b8c55 transparent;border:0;border-radius:0;background:none;box-shadow:none}
+#contact-view .ct-compose-heading{display:flex;align-items:center;justify-content:space-between;gap:20px;color:#c3a6c9;font:11px/1.5 Consolas,'Microsoft YaHei',monospace;letter-spacing:.1em}
+#contact-view .ct-compose-heading>svg{width:24px;height:20px;color:var(--ct-accent)}
+#contact-view #ct-email-form-title{font:italic 32px/1.2 Georgia,serif;color:#f6dfef;letter-spacing:-.03em;margin:17px 0 12px}
+#contact-view .ct-compose-intro{font-size:14px;line-height:1.8;color:#cdb6d2;margin:0}
+#contact-view .ct-compose-recipient{font:11px/1.6 Consolas,'Microsoft YaHei',monospace;letter-spacing:.02em;color:#9e83a9;margin:15px 0 27px;overflow-wrap:anywhere}
+#contact-view .ct-compose-recipient a{color:#e6b9d5;margin-left:8px;text-decoration:none}
+#contact-view .ct-compose-recipient a:hover{text-decoration:underline}
+#contact-view .ct-form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+#contact-view #ct-email-form label{display:block;font-size:14px;line-height:1.5;color:#e9d9e8;min-width:0}
+#contact-view #ct-email-form label>span{font:10px/1.5 Consolas,monospace;letter-spacing:.09em;color:#9e83aa;margin-left:8px}
+#contact-view #ct-email-form input,#contact-view #ct-email-form textarea{display:block;box-sizing:border-box;width:100%;min-width:0;margin-top:10px;padding:13px 14px;min-height:48px;border:1px solid #b991ad45;border-radius:6px;background:#100c1a80;color:#f6e7f2;font:16px/1.6 Arial,'Microsoft YaHei',sans-serif;outline:0;transition:border-color .2s,box-shadow .2s;caret-color:#ffb4d9}
+#contact-view #ct-email-form input::placeholder,#contact-view #ct-email-form textarea::placeholder{color:#8e779b;font-size:13px}
+#contact-view #ct-email-form input:focus,#contact-view #ct-email-form textarea:focus{border-color:#f8acd1b0;box-shadow:0 0 0 3px #efa0cf0e}
+#contact-view #ct-email-form .ct-message-label{margin-top:21px}
+#contact-view #ct-email-form textarea{resize:vertical;min-height:126px;max-height:420px}
+#contact-view .ct-message-count{display:block;text-align:right;margin-top:8px;font:10px/1.5 Consolas,monospace;letter-spacing:.06em;color:#9f82aa}
+#contact-view .ct-form-actions{display:flex;align-items:center;flex-wrap:wrap;gap:14px;margin-top:20px}
+#contact-view #ct-email-submit{display:flex;align-items:center;justify-content:space-between;gap:38px;padding:13px 18px;min-height:48px;min-width:174px;border:1px solid #dba4c980;border-radius:6px;background:#b477a32b;color:#ffe9f6;font-size:14px;transition:background .2s,border-color .2s}
+#contact-view #ct-email-submit>svg{width:22px;height:18px;color:#ffb5dc}
+#contact-view #ct-email-submit:hover:not(:disabled){background:#c57ca54a;border-color:#f0b3d8}
+#contact-view #ct-email-submit:disabled{cursor:default;opacity:.65}
+#contact-view .ct-email-form-status{font-size:13px;line-height:1.8;color:#cbb4d3;margin:14px 0 0;min-height:0}
+#contact-view .ct-email-form-status:empty{display:none}
+#contact-view .ct-email-form-status[data-state=error]{color:#edb2c5}
+#contact-view .ct-email-form-status[data-state=success]{color:#c6dfc5}
+#contact-view .ct-email-service-note a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+#contact-view .ct-email-service-note{font-size:10px;line-height:1.9;color:#a48aaf;margin:19px 0 0}
+@media(min-width:560px) and (max-width:1100px){#contact-view .ct-form-row{grid-template-columns:1fr;gap:15px}#contact-view #ct-email-form-title{font-size:24px}#contact-view .ct-compose-intro{font-size:12px}#contact-view #ct-email-submit{width:100%;min-width:0}#contact-view #ct-email-form input,#contact-view #ct-email-form textarea{font-size:14px;padding:9px 10px;min-height:40px}#contact-view #ct-email-form label{font-size:12px}}
+@media(max-width:559px){#contact-view .ct-form-row{grid-template-columns:1fr;gap:15px}#contact-view #ct-email-form-title{font-size:26px}#contact-view #ct-email-submit{width:100%;min-width:0}}
+@media(prefers-reduced-motion:reduce){#contact-view #ct-email-form input,#contact-view #ct-email-form textarea,#contact-view #ct-email-submit{transition:none}}
+#contact-view .ct-compose-heading{display:none}
+#contact-view #ct-email-form-title{margin-top:4px}
+#contact-view .ct-compose-recipient>span{color:#e6b9d5;margin-left:6px}
+@media(max-width:1100px){#contact-view .ct-email-composer{padding-top:12px}#contact-view #ct-email-form-title{font-size:22px;margin:3px 0 10px}#contact-view .ct-compose-intro{display:none}#contact-view .ct-compose-recipient{font-size:10px;margin:0 0 15px}#contact-view .ct-form-row{gap:12px}#contact-view #ct-email-form input,#contact-view #ct-email-form textarea{padding:8px 10px;min-height:38px;margin-top:6px;font-size:14px}#contact-view #ct-email-form textarea{height:84px;min-height:84px}#contact-view #ct-email-form .ct-message-label{margin-top:14px}#contact-view .ct-form-actions{margin-top:14px}#contact-view #ct-email-submit{min-height:40px;padding:9px 12px}}
+/* Requested 150% text scale, contained within the same screen. */
+#contact-view #ct-email-form-title{font-size:48px}
+#contact-view .ct-compose-intro{font-size:21px}
+#contact-view .ct-compose-recipient{font-size:16.5px}
+#contact-view #ct-email-form label{font-size:21px}
+#contact-view #ct-email-form label>span{font-size:15px}
+#contact-view #ct-email-form input,#contact-view #ct-email-form textarea{font-size:24px}
+#contact-view #ct-email-form input::placeholder,#contact-view #ct-email-form textarea::placeholder{font-size:19.5px}
+#contact-view .ct-message-count{font-size:15px}
+#contact-view #ct-email-submit{font-size:21px}
+#contact-view .ct-email-form-status{font-size:19.5px}
+#contact-view .ct-email-service-note{font-size:15px}
+@media(max-width:1100px){#contact-view #ct-email-form-title{font-size:33px}#contact-view .ct-compose-recipient{font-size:15px}#contact-view #ct-email-form label{font-size:18px}#contact-view #ct-email-form input,#contact-view #ct-email-form textarea{font-size:21px}}
+
+#contact-view[data-channel=email] .ct-channel-view{overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#8d6b8c55 transparent}
+#contact-view[data-channel=email] .ct-screen-copy h2{font-size:51px}
+#contact-view[data-channel=email] .ct-screen-copy p{font-size:24px}
+#contact-view[data-channel=email] .ct-screen-footer{font-size:22.5px}
+@media(min-width:560px) and (max-width:1100px){#contact-view[data-channel=email] .ct-screen-copy h2{font-size:clamp(34.5px,4.5vw,46.5px)}#contact-view[data-channel=email] .ct-screen-copy p,#contact-view[data-channel=email] .ct-screen-footer{font-size:19.5px}}
+@media(max-width:559px){#contact-view[data-channel=email] .ct-screen-copy h2{font-size:43.5px}#contact-view[data-channel=email] .ct-screen-copy p,#contact-view[data-channel=email] .ct-screen-footer{font-size:22.5px}}
+@media(max-width:370px){#contact-view[data-channel=email] .ct-screen-copy h2{font-size:37.5px}#contact-view[data-channel=email] .ct-screen-copy p{font-size:21px}}

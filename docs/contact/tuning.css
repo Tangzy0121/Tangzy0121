@@ -1,0 +1,29 @@
+/* Original 3D CRT study, housed in the existing stationary Contact screen. */
+#contact-view .ct-tuning{position:relative;isolation:isolate;flex:1;width:100%;min-height:0;margin-top:9px;overflow:hidden;border-radius:4px;background:#11121b;container-type:inline-size;outline:none}
+#contact-view[data-screen-mode=tuning] .ct-screen:after{display:none}
+#contact-view .ct-tune-stage{position:absolute;inset:0 0 57px;overflow:hidden;touch-action:pan-y}
+#contact-view .ct-tune-stage canvas{position:absolute;inset:0;display:block;width:100%;height:100%;outline:0}
+#contact-view .ct-tune-mast{position:absolute;top:11px;left:12px;right:12px;display:flex;justify-content:space-between;gap:8px;pointer-events:none;color:#d6c9db88;font:8px/1.4 Consolas,monospace;letter-spacing:.14em;text-shadow:0 1px 5px #000}
+#contact-view .ct-tuning[data-phase=playing] .ct-tune-stage{animation:ct-crt-open .3s cubic-bezier(.2,.6,.2,1) both}
+#contact-view .ct-tune-progress{position:absolute;bottom:17px;left:14px;right:14px;color:#b9a7c0;font:10px/1.5 Arial,'Microsoft YaHei',sans-serif;letter-spacing:.06em}
+#contact-view .ct-tuning[data-phase=ready] .ct-tune-progress{display:none}
+#contact-view .ct-tune-menu{position:absolute;left:12px;right:12px;bottom:8px;z-index:9;border-top:1px solid #ab8ca128;padding-top:6px;background:#11121b}
+#contact-view .ct-tune-menu-title{display:flex;align-items:center;justify-content:space-between;gap:8px;color:#b7a3bf;font:9px/1.4 Arial,'Microsoft YaHei',sans-serif}
+#contact-view #ct-tune-replay{background:none;border:0;padding:2px 0 2px 5px;color:#ceb2cf;font-size:10px;white-space:nowrap}
+#contact-view #ct-tune-replay:hover{color:#ffb8dd}
+#contact-view .ct-tune-choices{display:flex;justify-content:space-between;gap:6px;margin-top:2px}
+#contact-view .ct-tune-choices>button{display:flex;align-items:center;justify-content:center;gap:7px;flex:1;min-height:27px;padding:4px 8px;border:0;border-radius:2px;background:none;color:#dfd0e2;font:12px/1.4 Arial,'Microsoft YaHei',sans-serif;transition:background .15s,color .15s}
+#contact-view .ct-tune-choices>button small{color:#b68ca8;font:9px Consolas,monospace}
+#contact-view .ct-tune-choices>button:hover{background:#a87c9d20;color:#ffc5e3}
+#contact-view .ct-tune-fallback{position:absolute;top:40%;left:10%;right:10%;color:#c8b2cb;font:14px/1.8 Arial,'Microsoft YaHei',sans-serif;text-align:center}
+#contact-view #ct-dial{touch-action:none;user-select:none;-webkit-touch-callout:none}
+#contact-view .ct-dial-charge{position:absolute;inset:-8px;width:calc(100% + 16px);height:calc(100% + 16px);transform:rotate(-90deg);opacity:0;overflow:visible;pointer-events:none}
+#contact-view .ct-dial-charge circle{fill:none;stroke:var(--ct-accent);stroke-width:2;stroke-linecap:round;stroke-dasharray:100;stroke-dashoffset:100}
+#contact-view[data-dial-holding=true] .ct-dial-charge{opacity:1}
+#contact-view[data-dial-holding=true] .ct-dial-charge circle{animation:ct-dial-charge 1.2s linear forwards}
+#contact-view #ct-dial-hint{position:absolute;bottom:85px;right:14px;max-width:250px;padding:9px 12px;border:1px solid #b392b35c;border-radius:5px;background:#201729f5;color:#e5ccdf;font:11px/1.7 Arial,'Microsoft YaHei',sans-serif;letter-spacing:.02em;z-index:20;pointer-events:none;visibility:hidden;opacity:0;transform:translateY(5px);transition:opacity .15s,transform .15s,visibility .15s}
+#contact-view #ct-dial:hover~#ct-dial-hint,#contact-view #ct-dial:focus-visible~#ct-dial-hint,#contact-view[data-dial-holding=true] #ct-dial-hint{visibility:visible;opacity:1;transform:none}
+@keyframes ct-crt-open{from{clip-path:inset(49% 0);opacity:.3}to{clip-path:inset(0);opacity:1}}
+@keyframes ct-dial-charge{to{stroke-dashoffset:0}}
+@container(max-width:320px){#contact-view .ct-tune-mast{font-size:7px;letter-spacing:.04em;left:8px;right:8px}#contact-view .ct-tune-menu{left:8px;right:8px}#contact-view .ct-tune-menu-title{font-size:8px}#contact-view .ct-tune-choices>button{font-size:11px;padding:4px;gap:5px}}
+@media(prefers-reduced-motion:reduce){#contact-view .ct-tuning *{animation:none!important;transition:none!important}}

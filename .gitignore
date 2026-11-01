@@ -1,0 +1,5 @@
+node_modules/
+*.pdf
+*.mp4
+*.map
+.DS_Store

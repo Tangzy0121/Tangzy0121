@@ -1,0 +1,37 @@
+/* The existing About scene hosts the original shell; no replacement terminal skin. */
+#about-view .about-side{position:relative;align-self:center;min-width:0}
+#about-view .about-side-bar{position:absolute;right:0;top:-25px;z-index:6}
+#about-view .about-terminal-toggle{display:flex;align-items:center;gap:10px;min-height:44px;padding:9px 13px;border:1px solid #dca9cc45;background:#21172bd9;color:#eac6de;font:12px/1.4 Arial,'Microsoft YaHei',sans-serif;letter-spacing:.03em;transition:background .2s,border-color .2s}
+#about-view .about-terminal-toggle i{font:14px/1 Consolas,monospace;font-style:normal;color:#efadd4}
+#about-view .about-terminal-toggle:hover,#about-view .about-terminal-toggle[aria-expanded=true]{background:#3b2748;border-color:#e6b4d079}
+#about-view .about-side-stage{position:relative;isolation:isolate}
+#about-view .about-terminal{position:absolute;inset:25px 0 12px 18px;display:flex;flex-direction:column;min-width:0;min-height:0;overflow:hidden;border:1px solid #b38aa54a;background:#171320;box-shadow:0 16px 50px #08050e30}
+#about-view .about-terminal[hidden]{display:none}
+#about-view .about-terminal-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex:none;min-height:39px;padding:8px 13px;border-bottom:1px solid #b38aa52b;color:#bc9cba;font:10px/1.5 Consolas,'Microsoft YaHei',monospace;letter-spacing:.04em}
+#about-view .about-terminal-bar>span{display:flex;align-items:center;gap:8px;white-space:nowrap}
+#about-view .about-terminal-bar i{width:4px;height:4px;background:#e6a9cf;box-shadow:0 0 10px #e6a9cf55}
+#about-view .about-terminal-bar small{font:10px/1.5 Arial,'Microsoft YaHei',sans-serif;letter-spacing:0;color:#ab8fa9}
+#about-view #terminal-original{display:block;flex:1;min-height:0;width:100%;height:100%;border:0;padding:4px 11px;background:#171320;color-scheme:dark}
+#about-view .about-side[data-terminal-state=terminal] .portrait-region,
+#about-view .about-side[data-terminal-state=entering] .portrait-region,
+#about-view .about-side[data-terminal-state=closing] .portrait-region{visibility:hidden}
+@media(min-width:1101px){
+  #about-view .experience{transition:grid-template-columns .7s cubic-bezier(.2,.8,.2,1)}
+  #about-view:is([data-terminal-state=opening],[data-terminal-state=entering],[data-terminal-state=terminal],[data-terminal-state=closing]) .experience{grid-template-columns:21% 33% 46%}
+}
+@media(min-width:761px) and (max-width:1100px){
+  #about-view:is([data-terminal-state=opening],[data-terminal-state=entering],[data-terminal-state=terminal],[data-terminal-state=closing]) .experience{grid-template-columns:23% 35% 42%}
+  #about-view .about-terminal{left:12px}
+  #about-view .about-terminal-bar small{display:none}
+}
+@media(max-width:760px){
+  #about-view .about-side{grid-row:2;min-width:0;width:100%;margin-top:15px;padding-top:42px;scroll-margin-top:95px}
+  #about-view .about-side-bar{top:0;right:0}
+  #about-view .about-side-stage{min-height:330px;transition:min-height .65s cubic-bezier(.2,.8,.2,1)}
+  #about-view .about-side .portrait-region{margin:0 auto}
+  #about-view .about-terminal{inset:5px 0 0;min-height:0}
+  #about-view #terminal-original{padding:4px 9px}
+  #about-view .about-side:is([data-terminal-state=opening],[data-terminal-state=entering],[data-terminal-state=terminal],[data-terminal-state=closing]) .about-side-stage{min-height:480px}
+  #about-view .about-terminal-bar{min-height:39px}
+}
+@media(prefers-reduced-motion:reduce){#about-view .experience{transition:none}}

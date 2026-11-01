@@ -1,0 +1,33 @@
+/* Preserve upstream Welcome typography and links; integrate only three shortcuts. */
+.portfolio-quick-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:17px 0 4px;max-width:920px}
+.portfolio-quick-cards button{display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:11px 13px;border:1px solid var(--border);border-radius:3px;background:color-mix(in srgb,var(--link) 4%,transparent);text-align:left;color:var(--text);transition:background .18s,border-color .18s}
+.portfolio-quick-cards strong{font-size:16px;font-weight:500}
+.portfolio-quick-cards strong span{color:var(--link);font-size:14px}
+.portfolio-quick-cards small{color:var(--muted);font-size:13px;line-height:1.6}
+.portfolio-quick-cards button:hover{border-color:var(--link);background:color-mix(in srgb,var(--link) 10%,transparent)}
+.portfolio-quick-cards button:focus-visible{outline:2px solid var(--link);outline-offset:3px}
+:root{--cursor-ink:#f2e9f1}.dark{--cursor-ink:#21182b}
+@keyframes cursor-blink-ch{0%,49%{background:var(--cursor);color:var(--cursor-ink)}50%,100%{background:transparent;color:inherit}}
+@media(max-height:650px){
+  .portfolio-welcome .ascii-name{display:none}.portfolio-welcome .ascii-fallback{display:block;margin-top:10px;font-size:24px}
+  .portfolio-welcome .mt-4{margin-top:10px}
+  .portfolio-welcome>.text-sub:last-child,.portfolio-interests{display:none}
+  .portfolio-quick-cards{margin-top:12px}.portfolio-quick-cards button{padding:8px 11px}
+  .portfolio-welcome+.relative.mt-3{margin-top:8px}
+}
+@media(max-height:480px){
+  .portfolio-welcome .ascii-fallback{margin:4px 0;font-size:23px}
+  .portfolio-welcome>.mt-4:has(em){display:none}
+  .portfolio-welcome .mt-4{margin-top:7px}
+  .portfolio-quick-cards{margin:10px 0 2px}
+}
+@media(max-width:450px){
+  .portfolio-welcome>.text-sub.break-all{white-space:nowrap;overflow:hidden}
+  .portfolio-welcome>.mt-4:has(em){display:none}
+  .portfolio-quick-cards{gap:6px}
+  .portfolio-quick-cards button{padding:9px 7px;gap:2px}
+  .portfolio-quick-cards strong{font-size:15px}.portfolio-quick-cards strong span{display:none}
+  .portfolio-quick-cards small{font-size:12px}
+  .portfolio-welcome>.text-sub:has(.term-link){font-size:13px;line-height:1.7}
+}
+@media(prefers-reduced-motion:reduce){.portfolio-quick-cards button{transition:none}}

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://tangzy0121.github.io/Tangzy0121/sitemap.xml

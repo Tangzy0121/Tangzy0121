@@ -1,0 +1,23 @@
+/* THROWAWAY: no tooltip, progress copy, menu or variant controls. */
+#contact-view .sg-layer{position:absolute;z-index:12;pointer-events:none;overflow:hidden;border-radius:5px;background:#171224}
+#contact-view .sg-field,#contact-view .sg-field canvas{position:absolute;inset:0;display:block;width:100%;height:100%}
+#contact-view[data-signal-state=charging] #ct-panel,#contact-view[data-signal-state=burst] #ct-panel{box-shadow:0 0 0 1px #ac7fa437,inset 0 2px 14px #0006,0 0 calc(35px * var(--sg-charge,0)) #f38fcd25}
+#contact-view[data-signal-prototype] .ct-dial-charge circle{animation:none;stroke-dashoffset:calc(100 - var(--sg-charge,0) * 100)}
+#contact-view .sg-tuning{margin-top:8px;background:#090b14;overflow:hidden}
+#contact-view .sg-hijack{position:absolute;inset:0;overflow:hidden;background:radial-gradient(ellipse at 50% 40%,#24304a80,transparent 65%),linear-gradient(140deg,#111322,#090b14 70%);color:#f7eaf5;--hack-reveal:0;--led-power:0}
+#contact-view .sg-hijack:after{position:absolute;inset:0;pointer-events:none;content:'';box-shadow:inset 0 0 32px #0007}
+#contact-view .sg-hack-visual{position:absolute;inset:4px 6px 58px;display:grid;place-items:center}
+#contact-view .sg-mask{display:block;width:100%;height:100%;overflow:visible;max-width:430px;image-rendering:pixelated;shape-rendering:crispEdges}
+#contact-view .sg-pixel-body{image-rendering:pixelated}
+
+#contact-view .sg-eye{opacity:0;shape-rendering:crispEdges}
+
+
+#contact-view .sg-hijack[data-expression=cross] .sg-eye-cross,#contact-view .sg-hijack[data-expression=happy] .sg-eye-happy,#contact-view .sg-hijack[data-expression=wink] .sg-eye-wink,#contact-view .sg-hijack[data-expression=blink] .sg-eye-blink{opacity:var(--led-power)}
+
+#contact-view .sg-hack-message{position:absolute;left:8px;right:8px;bottom:22px;text-align:center;z-index:1}
+#contact-view .sg-hack-message h2{margin:0;color:#f4dcf0;font:700 clamp(26px,8cqw,42px)/1.15 Consolas,'Courier New',monospace;letter-spacing:-.055em;opacity:var(--hack-reveal);transform:translateY(calc((1 - var(--hack-reveal)) * 6px));text-shadow:0 0 20px #ee90ce24}
+#contact-view .sg-hack-leaving{animation:sg-hack-off .22s cubic-bezier(.6,0,.8,.2) both}
+@keyframes sg-hack-off{to{opacity:0;transform:scaleY(.02);filter:brightness(1.3)}}
+@container(max-width:320px){#contact-view .sg-hack-visual{inset:8px 0 62px}#contact-view .sg-hack-message{bottom:25px}}
+@media(prefers-reduced-motion:reduce){#contact-view .sg-mask{transition:none!important}#contact-view .sg-hack-leaving{animation:none!important}}

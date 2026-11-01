@@ -1,0 +1,20 @@
+@font-face{font-family:"Maple Mono";src:url("fonts/MapleMono.woff2") format("woff2");font-display:swap}
+@font-face{font-family:"Maple Mono";src:url("fonts/MapleMono-Italic.woff2") format("woff2");font-display:swap;font-style:italic}
+/* Original homepage components and typography; only its canvas and palette adapt. */
+:root{--page-bg:transparent;--term-bg:#efe5efed;--text:#382e3e;--muted:#78687d;--link:#95517b;--path:#6f5e9c;--border:#bfa7bb;--cursor:#95517b;--scrollbar:#b19cad;--scrollbar-hover:#8f7389;--faint:#9a8293;--success:#477341;--warning:#8a6331;--error:#a74359;color-scheme:light}
+.dark{--page-bg:transparent;--term-bg:transparent;--text:#eddfed;--muted:#c0abc8;--link:#efb7d8;--path:#c3b4ec;--border:#b28da44d;--cursor:#edafd2;--scrollbar:#755d7a;--scrollbar-hover:#a182a4;--faint:#a18bac;--success:#b8d9b3;--warning:#e0c69b;--error:#f4a2b5;color-scheme:dark}
+html,body,#root,.page{height:100%;min-height:0;margin:0;overflow:hidden}
+html,body,#root,.page{background:transparent}
+.page{padding:0}
+.term-window{width:100%;height:100%;min-height:0;border:0;border-radius:0;background:var(--term-bg)}
+.pager{background:var(--term-bg)}
+.term-window:before,.term-window:after{display:none}
+.term-scroll{padding:12px 3px 18px}
+.pager{padding:12px 3px 0}
+@media(max-width:639px){.page{padding:0}.term-window{width:100%;height:100%;border-radius:0}.term-scroll{padding:12px 3px 18px}.pager{padding:12px 3px 0}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+/* Use the original short wordmark when a wide browser has limited height. */
+@media(min-width:640px) and (max-height:600px){
+  .ascii-name{display:none}
+  .ascii-fallback{display:block;margin-top:12px}
+}
